@@ -13,7 +13,7 @@ def update_script():
     script_path = os.path.join(os.path.dirname(__file__), 'update.bat')
     
     if not os.path.exists(script_path):
-        print(f"{script_path} does not exist.")
+        exc_handler('error', f"{script_path} does not exist")
         return
 
     # Function to run the batch script and read its output
@@ -31,7 +31,7 @@ def update_script():
     # Run the script with a progress bar
     try:
         with Progress() as progress:
-            task = progress.add_task("[green]Updating...", total=100)
+            task = progress.add_task(":thumbs_up:[green]log[/green] Updating...", total=100)
             
             for line in run_script():
                 if line.isdigit():
