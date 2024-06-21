@@ -38,4 +38,5 @@ map = ":world_map:"
 private = ":shield:"
 maxcars = ":blue_car:"
 maxplayers = ":people_wrestling:"
+testvalue = ":test_value:"
 # test
