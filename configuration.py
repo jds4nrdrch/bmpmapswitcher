@@ -32,6 +32,13 @@ ERROR_EMOJI = settings['other']['error_emoji']
 SUCCESS_EMOJI = settings['other']['success_emoji']
 UPDATE_EMOJI = settings['other']['update_emoji']
 
+# keys
+SVR_NAME_KEY = settings['keys']['name']
+SVR_PORT_KEY = settings['keys']['port']
+SVR_MAP_KEY = settings['keys']['map']
+SVR_PRIVATE_KEY = settings['keys']['private']
+SVR_MAXCARS_KEY = settings['keys']['maxcars']
+SVR_MAXPLAYERS_KEY = settings['keys']['maxplayers']
 
 # Convert colors from settings.toml to colorama.Fore attributes
 DEFAULT_TEXT_COLOR = settings['color_map']['default_text_color']

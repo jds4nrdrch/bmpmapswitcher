@@ -145,19 +145,19 @@ def list_maps():
     server_config = {}
     for line in config_lines:
         if line.startswith('Name = "'):
-            server_config['Name'] = line.split('=')[1].strip().strip('"')
+            server_config[f'{SVR_NAME_KEY}'] = line.split('=')[1].strip().strip('"')
         elif line.startswith('Port ='):
-            server_config['Port'] = line.split('=')[1].strip()
+            server_config[f'{SVR_PORT_KEY}'] = line.split('=')[1].strip()
         elif line.startswith('Map = "/levels/'):
             map_path = line.split('=')[1].strip().strip('"')
             map_name = map_path.split('/')[2]  # Extract the map name from the path
-            server_config['Map'] = map_name
-        elif line.startswith('Private = '):
-            server_config['Private'] = line.split('=')[1].strip()
+            server_config[f'{SVR_MAP_KEY} '] = map_name
+        elif line.startswith('Private ='):
+            server_config[f'{SVR_PRIVATE_KEY} '] = line.split('=')[1].strip()
         elif line.startswith('MaxCars = '):
-            server_config['MaxCars'] = line.split('=')[1].strip()
+            server_config[f'{SVR_MAXCARS_KEY}'] = line.split('=')[1].strip()
         elif line.startswith('MaxPlayers = '):
-            server_config['MaxPlayers'] = line.split('=')[1].strip()
+            server_config[f'{SVR_MAXPLAYERS_KEY}'] = line.split('=')[1].strip()
 
     # Print the server config values in the first line with different colors
     config_display = []
