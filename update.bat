@@ -61,6 +61,11 @@ for %%f in (%FILES_TO_CHECK%) do (
                 for /f "tokens=1,* delims==" %%j in ('type "%TARGET_DIR%\%SETTINGS_FILE%" ^| findstr /b /c:"!first_part!"') do (
                     if "!first_part!=%%k" == "%%j" (
                         set match_found=true
+                        rem Check if entire line is different
+                        if "!first_part!=%%j" neq "!first_part!=%%k" (
+                            echo Updating line: %%i=%%j
+                            echo %%i=%%j>>"%TARGET_DIR%\%SETTINGS_FILE%"
+                        )
                     )
                 )
                 if "!match_found!" == "false" (
