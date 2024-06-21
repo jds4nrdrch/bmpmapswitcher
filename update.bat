@@ -17,7 +17,7 @@ REM Clone the repository to a temporary folder
 echo Cloning repository to %TEMP_DIR%...
 if exist %TEMP_DIR% rd /s /q %TEMP_DIR%
 git clone %REPO_URL% %TEMP_DIR%
-echo 100
+echo 0
 if errorlevel 1 (
     echo Error cloning repository.
     echo 100
@@ -26,18 +26,21 @@ if errorlevel 1 (
 echo 200
 REM Change to the temporary repository directory
 cd /d %TEMP_DIR%
-echo 300
+echo 250
 REM Check and update files
 echo Checking and updating files...
 for %%f in (%FILES_TO_CHECK%) do (
     if "%%f" == "%SETTINGS_FILE%" (
+        echo 300
         if not exist "%TARGET_DIR%\%SETTINGS_FILE%" (
             echo Copying %DEFAULT_SETTINGS_FILE% to %SETTINGS_FILE%...
             copy /y %DEFAULT_SETTINGS_FILE% "%TARGET_DIR%\%SETTINGS_FILE%"
+            echo 350
         )
     ) else (
         echo Replacing %%f...
         copy /y %%f "%TARGET_DIR%\%%f"
+        echo 350
     )
 )
 echo 450
@@ -49,6 +52,7 @@ REM Remove maps.json if it exists
 if exist "%TARGET_DIR%\%MAPS_FILE%" (
     echo Removing %MAPS_FILE%...
     del /q "%TARGET_DIR%\%MAPS_FILE%"
+    echo 500
 )
 echo 660
 
@@ -56,15 +60,17 @@ echo 660
 REM Install or upgrade pip packages
 if exist "%TARGET_DIR%\requirements.txt" (
     echo Installing or upgrading pip packages from requirements.txt...
-    echo 80
+    echo 700
     pip install --upgrade -r "%TARGET_DIR%\requirements.txt"
+    echo 800
 )
-echo 900
+echo 850
 
 REM Clean up
 echo Cleaning up...
 rd /s /q %TEMP_DIR%
+echo 900
 
-echo 1000
 echo Update complete.
+echo 1000
 exit /b 0
