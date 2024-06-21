@@ -9,7 +9,7 @@ console = Console()
 
 
 def update_script():
-    # path to update.bat
+    # Path to update.bat
     script_path = os.path.join(os.path.dirname(__file__), 'update.bat')
     
     if not os.path.exists(script_path):
@@ -31,14 +31,21 @@ def update_script():
     # Run the script with a progress bar
     try:
         with Progress() as progress:
-            task = progress.add_task(f":thumbs_up:[{SUCCESS_COLOR}] log [/{SUCCESS_COLOR}]Updating...", total=100)
-            
+            task = progress.add_task(f":thumbs_up:[green]Updating...", total=100)
+            previous_percentage = 0
+
             for line in run_script():
                 if line.isdigit():
-                    progress.update(task, completed=int(line))
+                    current_percentage = int(line)
+                    # Interpolate between previous and current percentage
+                    for i in range(previous_percentage + 1, current_percentage + 1):
+                        progress.update(task, completed=i)
+                        time.sleep(0.05)  # Adjust the sleep time for smoother/slower updates
+                    previous_percentage = current_percentage
+
         exc_handler('success', f"Update complete.")
     except Exception as e:
-        exc_handler('error', f"Update failed.")
+        exc_handler('error', f"Update failed: {e}")
 
 
 
