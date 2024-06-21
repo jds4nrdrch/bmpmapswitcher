@@ -7,7 +7,6 @@ from rich.progress import Progress
 from configuration import *
 console = Console()
 
-# test
 
 def update_script():
     # Path to the update.bat script
@@ -38,9 +37,10 @@ def update_script():
                 if line.isdigit():
                     progress.update(task, completed=int(line))
 
-        print("Update complete.")
+        
+        exc_handler('success', f"Update complete.")
     except Exception as e:
-        print(f"An error occurred: {e}")
+        exc_handler('error', f"Update failed.")
 
 
 
