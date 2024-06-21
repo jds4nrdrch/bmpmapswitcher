@@ -3,8 +3,49 @@ import toml
 import argparse
 import rich
 from rich.console import Console
+from rich.progress import Progress
 from configuration import *
 console = Console()
+
+
+
+def update_script():
+    # Path to the update.bat script
+    bat_script_path = os.path.join(os.path.dirname(__file__), 'update.bat')
+    
+    if not os.path.exists(bat_script_path):
+        console.print(f"{bat_script_path} does not exist.")
+        exc_handler("error", f"Settings file not found at {bat_script_path}")
+        return
+
+    # Function to run the batch script and read its output
+    def run_script():
+        process = subprocess.Popen([bat_script_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True, text=True)
+        while True:
+            output = process.stdout.readline()
+            if output == '' and process.poll() is not None:
+                break
+            if output:
+                yield output.strip()
+        rc = process.poll()
+        return rc
+
+    # Run the script with a progress bar
+    try:
+        with Progress() as progress:
+            task = progress.add_task("[green]Updating...", total=100)
+            
+            for line in run_script():
+                if line.isdigit():
+                    progress.update(task, completed=int(line))
+                else:
+                    print(line)
+
+        print("Update complete.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+
 
 
 # exc_handler("option", f"message")
