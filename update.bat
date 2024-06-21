@@ -48,7 +48,6 @@ echo 450
 
 
 REM Remove maps.json if it exists
-
 if exist "%TARGET_DIR%\%MAPS_FILE%" (
     echo Removing %MAPS_FILE%...
     del /q "%TARGET_DIR%\%MAPS_FILE%"
