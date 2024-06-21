@@ -15,7 +15,7 @@ def main():
             return help_text + usage_examples
 
     parser = CustomArgumentParser(description=f"{DEFAULT_TEXT_COLOR}Map Management Script[/{DEFAULT_TEXT_COLOR}]")
-    parser.add_argument('command', choices=['list', 'pick', 'sync', 'open', 'run'], help=f"[{DEFAULT_TEXT_COLOR}]Command to execute[/{DEFAULT_TEXT_COLOR}]")
+    parser.add_argument('command', choices=['list', 'pick', 'sync', 'open', 'run', 'update'], help=f"[{DEFAULT_TEXT_COLOR}]Command to execute[/{DEFAULT_TEXT_COLOR}]")
     parser.add_argument('map_identifier', nargs='?', default=None)
     args = parser.parse_args()
 
@@ -27,7 +27,6 @@ def main():
         if args.map_identifier:
             pick_map(args.map_identifier)
         else:
-            
             exc_handler("error", f"Please provide the map name or ID to pick.")
     elif args.command == 'open':
         if args.map_identifier:
@@ -39,6 +38,8 @@ def main():
             run_execs(args.map_identifier)
         else:
             exc_handler("error", f"Please provide the option to run (choose from: 'launcher', 'tunnel' or 'server')")    
+    elif args.command == 'update':
+        update_script()
     else:
         exc_handler("error", f"Unknown command")
 
