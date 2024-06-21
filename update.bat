@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-REM Define variabless
+REM Define variables
 set REPO_URL=https://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@github.com/jds4nrdrch/bmpmapswitcher.git
 set TEMP_DIR=%TEMP%\repo_temp
 set TARGET_DIR=%CD%
