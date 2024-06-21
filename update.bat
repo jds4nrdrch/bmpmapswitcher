@@ -16,7 +16,7 @@ REM Remove maps.json if it exists
 if exist "%TARGET_DIR%\%MAPS_FILE%" (
     echo Removing %MAPS_FILE%...
     del /q "%TARGET_DIR%\%MAPS_FILE%"
-    echo 500
+    
 )
 echo 50
 REM Clone the repository to a temporary folder
