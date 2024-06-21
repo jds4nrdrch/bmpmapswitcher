@@ -175,7 +175,7 @@ def compare_settings(script_directory):
     os.remove(temp_file_path)
 
     
-    console.print("success", f"Settings file at {settings_path} has been updated with missing default")
+    exc_handler("success", f"Settings file at {settings_path} has been updated with missing default")
 
 def list_maps():
     if not os.path.exists(MAPS_JSON_PATH) or os.stat(MAPS_JSON_PATH).st_size == 0:
