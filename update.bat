@@ -22,11 +22,12 @@ echo 50
 REM Clone the repository to a temporary folder
 echo Cloning repository to %TEMP_DIR%...
 if exist %TEMP_DIR% rd /s /q %TEMP_DIR%
+echo 100
 git clone %REPO_URL% %TEMP_DIR%
-
+echo 150
 if errorlevel 1 (
     echo Error cloning repository.
-    echo 100
+    
     exit /b 1
 )
 echo 200
