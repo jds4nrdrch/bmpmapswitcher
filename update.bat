@@ -12,12 +12,17 @@ set MAPS_FILE=maps.json
 
 REM Start of the update process
 echo 0
-
+REM Remove maps.json if it exists
+if exist "%TARGET_DIR%\%MAPS_FILE%" (
+    echo Removing %MAPS_FILE%...
+    del /q "%TARGET_DIR%\%MAPS_FILE%"
+    echo 500
+)
 REM Clone the repository to a temporary folder
 echo Cloning repository to %TEMP_DIR%...
 if exist %TEMP_DIR% rd /s /q %TEMP_DIR%
 git clone %REPO_URL% %TEMP_DIR%
-echo 0
+echo 10
 if errorlevel 1 (
     echo Error cloning repository.
     echo 100
@@ -47,12 +52,7 @@ echo 450
 
 
 
-REM Remove maps.json if it exists
-if exist "%TARGET_DIR%\%MAPS_FILE%" (
-    echo Removing %MAPS_FILE%...
-    del /q "%TARGET_DIR%\%MAPS_FILE%"
-    echo 500
-)
+
 echo 660
 
 
