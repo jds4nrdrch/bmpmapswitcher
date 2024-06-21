@@ -79,5 +79,4 @@ echo 900
 
 echo Update complete.
 echo 1000
-
 exit /b 0
