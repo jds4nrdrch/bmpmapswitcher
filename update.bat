@@ -4,7 +4,7 @@ setlocal enabledelayedexpansion
 REM Determine script directory
 set "SCRIPT_DIR=%~dp0"
 REM Define variabless
-set REPO_URL=https://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@github.com/jds4nrdrch/bmpmapswitcher.git
+set REPO_URL=https://github.com/jds4nrdrch/bmpmapswitcher.git
 set TEMP_DIR=%TEMP%\repo_temp
 set TARGET_DIR=%SCRIPT_DIR%
 set FILES_TO_CHECK=configuration.py functions.py main.py settings.toml requirements.txt update.bat

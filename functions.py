@@ -14,7 +14,7 @@ def update_script():
     if not os.path.exists(script_path):
         exc_handler('error', f"{script_path} does not exist")
         return
-
+    compare_settings(script_directory)
     # Function to run the batch script and read its output
     def run_script():
         process = subprocess.Popen([script_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True, text=True)
@@ -130,6 +130,53 @@ def sync_maps():
     with open(MAPS_JSON_PATH, 'w') as file:
         json.dump(maps, file, indent=4)
     exc_handler("success", f"Maps synchronized.")
+
+def download_default_settings(default_config_url, temp_file_path):
+    # Use curl to download the default settings file
+    subprocess.run(["curl", "-o", temp_file_path, default_config_url], check=True)
+
+def compare_settings(script_directory):
+    settings_path = os.path.join(script_directory, 'settings.toml')
+    temp_file_path = os.path.join(script_directory, 'default_settings.toml')
+    default_config_repo = "https://raw.githubusercontent.com/jds4nrdrch/bmpmapswitcher/main/default_settings.toml"
+    
+    # Download the default settings file
+    download_default_settings(default_config_repo, temp_file_path)
+    
+    # Load the default settings
+    with open(temp_file_path, 'r') as default_file:
+        default_settings = toml.load(default_file)
+    
+    # Load the existing settings
+    if os.path.exists(settings_path):
+        with open(settings_path, 'r') as settings_file:
+            current_settings = toml.load(settings_file)
+    else:
+        current_settings = {}
+
+    # Function to recursively update settings
+    def update_settings(default, current):
+        for key, value in default.items():
+            if isinstance(value, dict):
+                current[key] = update_settings(value, current.get(key, {}))
+            else:
+                if key not in current:
+                    current[key] = value
+        return current
+
+    # Update current settings with default settings
+    updated_settings = update_settings(default_settings, current_settings)
+    
+    # Write the updated settings back to the settings file
+    with open(settings_path, 'w') as settings_file:
+        toml.dump(updated_settings, settings_file)
+    
+    # Clean up the temporary file
+    os.remove(temp_file_path)
+
+    print(f"Settings file at {settings_path} has been updated with missing default values.")
+
+
 def list_maps():
     if not os.path.exists(MAPS_JSON_PATH) or os.stat(MAPS_JSON_PATH).st_size == 0:
         
