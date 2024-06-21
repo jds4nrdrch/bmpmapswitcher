@@ -54,12 +54,20 @@ for %%f in (%FILES_TO_CHECK%) do (
             echo 350
         ) else (
             echo Updating %SETTINGS_FILE% from %DEFAULT_SETTINGS_FILE%...
-            for /f "tokens=* delims=" %%i in (%DEFAULT_SETTINGS_FILE%) do (
-                findstr /c:"%%i" "%TARGET_DIR%\%SETTINGS_FILE%" >nul || (
+            setlocal enabledelayedexpansion
+            for /f "tokens=*" %%i in ('type "%DEFAULT_SETTINGS_FILE%"') do (
+                set line=%%i
+                set first_five=!line:~0,5!
+                findstr /b /c:"!first_five!" "%TARGET_DIR%\%SETTINGS_FILE%" >nul || (
                     echo Adding line: %%i
                     echo %%i>>"%TARGET_DIR%\%SETTINGS_FILE%"
                 )
+                findstr /b /c:"!first_five!" "%TARGET_DIR%\%SETTINGS_FILE%" | findstr /c:"%%i" >nul || (
+                    echo Updating line: %%i
+                    echo %%i>>"%TARGET_DIR%\%SETTINGS_FILE%"
+                )
             )
+            endlocal
             echo 350
         )
     ) else (
