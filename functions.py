@@ -7,7 +7,7 @@ from rich.progress import Progress
 from configuration import *
 console = Console()
 
-
+# test
 
 def update_script():
     # Path to the update.bat script
