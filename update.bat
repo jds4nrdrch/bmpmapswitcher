@@ -18,11 +18,12 @@ if exist "%TARGET_DIR%\%MAPS_FILE%" (
     del /q "%TARGET_DIR%\%MAPS_FILE%"
     echo 500
 )
+echo 50
 REM Clone the repository to a temporary folder
 echo Cloning repository to %TEMP_DIR%...
 if exist %TEMP_DIR% rd /s /q %TEMP_DIR%
 git clone %REPO_URL% %TEMP_DIR%
-echo 10
+
 if errorlevel 1 (
     echo Error cloning repository.
     echo 100
