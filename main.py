@@ -5,12 +5,12 @@ class CustomArgumentParser(argparse.ArgumentParser):
         help_text = super().format_help()
         usage_examples = (
             f"\n[bold {DEFAULT_MAP_COLOR}]Usage Examples:[/bold {DEFAULT_MAP_COLOR}]\n"
-            f"[{DEFAULT_TEXT_COLOR}]  List maps:[/{DEFAULT_TEXT_COLOR}]      [{ZIP_NAME_COLOR}]BMPMapSwitcher[/{ZIP_NAME_COLOR}] [bold {CONFIG_VALUE_COLOR}]list[/bold {CONFIG_VALUE_COLOR}]\n"
-            f"[{DEFAULT_TEXT_COLOR}]  Sync maps:[/{DEFAULT_TEXT_COLOR}]      [{ZIP_NAME_COLOR}]BMPMapSwitcher[/{ZIP_NAME_COLOR}] [bold {CONFIG_VALUE_COLOR}]sync[/bold {CONFIG_VALUE_COLOR}]\n"
-            f"[{DEFAULT_TEXT_COLOR}]  Pick map:[/{DEFAULT_TEXT_COLOR}]       [{ZIP_NAME_COLOR}]BMPMapSwitcher[/{ZIP_NAME_COLOR}] [bold {CONFIG_VALUE_COLOR}]pick[/bold {CONFIG_VALUE_COLOR}] [{ZIP_NAME_COLOR}]<map_name_or_id>[/{ZIP_NAME_COLOR}]\n"
-            f"[{DEFAULT_TEXT_COLOR}]  Open paths:[/{DEFAULT_TEXT_COLOR}]     [{ZIP_NAME_COLOR}]BMPMapSwitcher[/{ZIP_NAME_COLOR}] [bold {CONFIG_VALUE_COLOR}]open[/bold {CONFIG_VALUE_COLOR}] [{ZIP_NAME_COLOR}]<option>[/{ZIP_NAME_COLOR}]\n"
-            f"[{DEFAULT_TEXT_COLOR}]  Run exe/lnk:[/{DEFAULT_TEXT_COLOR}]    [{ZIP_NAME_COLOR}]BMPMapSwitcher[/{ZIP_NAME_COLOR}] [bold {CONFIG_VALUE_COLOR}]run[/bold {CONFIG_VALUE_COLOR}] [{ZIP_NAME_COLOR}]<option>[/{ZIP_NAME_COLOR}]\n"
-            f"[{DEFAULT_TEXT_COLOR}]  Update program:[/{DEFAULT_TEXT_COLOR}] [{ZIP_NAME_COLOR}]BMPMapSwitcher[/{ZIP_NAME_COLOR}] [bold {CONFIG_VALUE_COLOR}]update[/bold {CONFIG_VALUE_COLOR}]\n"
+            f"[{DEFAULT_TEXT_COLOR}]  list maps:[/{DEFAULT_TEXT_COLOR}]      [{ADDED_MAP_COLOR}]BMPMapSwitcher[/{ADDED_MAP_COLOR}] [bold {CONFIG_VALUE_COLOR}]list[/bold {CONFIG_VALUE_COLOR}]\n"
+            f"[{DEFAULT_TEXT_COLOR}]  sync maps:[/{DEFAULT_TEXT_COLOR}]      [{ADDED_MAP_COLOR}]BMPMapSwitcher[/{ADDED_MAP_COLOR}] [bold {CONFIG_VALUE_COLOR}]sync[/bold {CONFIG_VALUE_COLOR}]\n"
+            f"[{DEFAULT_TEXT_COLOR}]  pick map:[/{DEFAULT_TEXT_COLOR}]       [{ADDED_MAP_COLOR}]BMPMapSwitcher[/{ADDED_MAP_COLOR}] [bold {CONFIG_VALUE_COLOR}]pick[/bold {CONFIG_VALUE_COLOR}] [{ZIP_NAME_COLOR}]<map_name_or_id>[/{ZIP_NAME_COLOR}]\n"
+            f"[{DEFAULT_TEXT_COLOR}]  open paths:[/{DEFAULT_TEXT_COLOR}]     [{ADDED_MAP_COLOR}]BMPMapSwitcher[/{ADDED_MAP_COLOR}] [bold {CONFIG_VALUE_COLOR}]open[/bold {CONFIG_VALUE_COLOR}] [{ZIP_NAME_COLOR}]<option>[/{ZIP_NAME_COLOR}]\n"
+            f"[{DEFAULT_TEXT_COLOR}]  run exe/lnk:[/{DEFAULT_TEXT_COLOR}]    [{ADDED_MAP_COLOR}]BMPMapSwitcher[/{ADDED_MAP_COLOR}] [bold {CONFIG_VALUE_COLOR}]run[/bold {CONFIG_VALUE_COLOR}] [{ZIP_NAME_COLOR}]<option>[/{ZIP_NAME_COLOR}]\n"
+            f"[{DEFAULT_TEXT_COLOR}]  update program:[/{DEFAULT_TEXT_COLOR}] [{ADDED_MAP_COLOR}]BMPMapSwitcher[/{ADDED_MAP_COLOR}] [bold {CONFIG_VALUE_COLOR}]update[/bold {CONFIG_VALUE_COLOR}]\n"
         
         )
         #console.print(Text.from_markup(help_text))
