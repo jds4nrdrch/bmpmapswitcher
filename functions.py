@@ -50,9 +50,9 @@ def update_script():
 # exc_handler("option", f"message")
 def exc_handler(message_type, message):
     if message_type == "error":
-        console.print(f":thumbs_down:[{ERROR_COLOR}] log [/{ERROR_COLOR}][{ERR_SUCC_COLOR}]{message}[/{ERR_SUCC_COLOR}]")
+        console.print(f"{ERROR_EMOJI}[{ERROR_COLOR}] log [/{ERROR_COLOR}][{ERR_SUCC_COLOR}]{message}[/{ERR_SUCC_COLOR}]")
     elif message_type == "success":
-        console.print(f":thumbs_up:[{SUCCESS_COLOR}] log [/{SUCCESS_COLOR}][{ERR_SUCC_COLOR}]{message}[/{ERR_SUCC_COLOR}]")
+        console.print(f"{SUCCESS_EMOJI}[{SUCCESS_COLOR}] log [/{SUCCESS_COLOR}][{ERR_SUCC_COLOR}]{message}[/{ERR_SUCC_COLOR}]")
     else:
         print(message)  # Default print without any color
 
