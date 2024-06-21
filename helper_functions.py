@@ -1,5 +1,4 @@
 def update_script():
-    
     script_path = os.path.join(os.path.dirname(__file__), 'update.bat')
     if not os.path.exists(script_path):
         exc_handler('error', f"{script_path} does not exist")
