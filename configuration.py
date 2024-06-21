@@ -30,7 +30,7 @@ CONFIG_SEPARATOR = settings['other']['config_separator']
 CONFIG_VALUE_SEPARATOR = settings['other']['config_value_separator']
 ERROR_EMOJI = settings['other']['error_emoji']
 SUCCESS_EMOJI = settings['other']['success_emoji']
-
+UPDATE_EMOJI = settings['other']['update_emoji']
 
 
 # Convert colors from settings.toml to colorama.Fore attributes
