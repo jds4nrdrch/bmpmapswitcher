@@ -9,7 +9,7 @@ console = Console()
 
 
 def update_script():
-    
+    # path to update.bat
     script_path = os.path.join(os.path.dirname(__file__), 'update.bat')
     
     if not os.path.exists(script_path):
@@ -67,7 +67,7 @@ def open_paths(path_type):
             exc_handler("error", f"Config file not found at {SERVER_CONFIG}")
     elif path_type == 'script':
         if os.path.exists(executable_path):
-            subprocess.Popen(['explorer', '/open,', executable_path])
+            subprocess.Popen(['explorer', '/select,', executable_path])
             exc_handler("success", f"Opened script path at {executable_path}")
         else:
             exc_handler("error", f"Script file not found at {executable_path}")
