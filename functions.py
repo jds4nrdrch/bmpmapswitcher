@@ -135,7 +135,7 @@ def sync_maps():
 def list_maps():
     if not os.path.exists(MAPS_JSON_PATH) or os.stat(MAPS_JSON_PATH).st_size == 0:
         
-        exc_handler("error", f" No maps found. Automatically running 'sync'.")
+        exc_handler("error", f"No maps found. Automatically running 'sync'.")
         sync_maps()
         list_maps()
         return
