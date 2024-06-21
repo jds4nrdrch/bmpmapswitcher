@@ -133,7 +133,7 @@ def sync_maps():
 
 def download_default_settings(default_config_url, temp_file_path):
     # Use curl to download the default settings file
-    subprocess.run(["curl", "-o", temp_file_path, default_config_url], check=True)
+    subprocess.run(["curl", "-o", temp_file_path, default_config_url], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
 
 def compare_settings(script_directory):
     settings_path = os.path.join(script_directory, 'settings.toml')
@@ -174,8 +174,8 @@ def compare_settings(script_directory):
     # Clean up the temporary file
     os.remove(temp_file_path)
 
-    print(f"Settings file at {settings_path} has been updated with missing default values.")
-
+    
+    console.print("success", f"Settings file at {settings_path} has been updated with missing default")
 
 def list_maps():
     if not os.path.exists(MAPS_JSON_PATH) or os.stat(MAPS_JSON_PATH).st_size == 0:
