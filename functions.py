@@ -4,6 +4,7 @@ import argparse
 import rich
 from rich.console import Console
 from rich.progress import Progress
+from rich.text import Text
 from configuration import *
 console = Console()
 
