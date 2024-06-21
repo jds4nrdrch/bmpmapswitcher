@@ -10,7 +10,6 @@ settings_path = os.path.join(script_directory, 'settings.toml')
 with open(settings_path, 'r') as file:
     settings = toml.load(file)
 
-
 # Path configurations
 DEFAULT_MAPS_PATH = settings['paths']['default_maps_path']
 ADDED_MAPS_PATH = settings['paths']['added_maps_path']

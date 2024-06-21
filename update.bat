@@ -14,10 +14,14 @@ set MAPS_FILE=maps.json
 
 REM Start of the update process
 echo 0
+echo 10
+echo 20
 REM Remove maps.json if it exists
 if exist "%TARGET_DIR%\%MAPS_FILE%" (
     echo Removing %MAPS_FILE%...
+    echo 30
     del /q "%TARGET_DIR%\%MAPS_FILE%"
+    echo 40
 )
 echo 50
 
