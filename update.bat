@@ -55,22 +55,18 @@ for %%f in (%FILES_TO_CHECK%) do (
         ) else (
             echo Updating %SETTINGS_FILE% from %DEFAULT_SETTINGS_FILE%...
             setlocal enabledelayedexpansion
-            for /f "tokens=1,* delims= " %%i in ('type "%DEFAULT_SETTINGS_FILE%"') do (
-                set first_word=%%i
+            for /f "tokens=*" %%i in ('type "%DEFAULT_SETTINGS_FILE%"') do (
+                set line=%%i
+                set first_five=!line:~0,5!
                 set match_found=false
-                for /f "tokens=1,* delims= " %%j in ('type "%TARGET_DIR%\%SETTINGS_FILE%" ^| findstr /b /c:"!first_word!"') do (
-                    if "%%j" == "!first_word!" (
+                for /f "tokens=*" %%j in ('findstr /b /c:"!first_five!" "%TARGET_DIR%\%SETTINGS_FILE%"') do (
+                    if "!line!" == "%%j" (
                         set match_found=true
-                        rem Check if entire line is different
-                        if "%%k" neq "%%l" (
-                            echo Updating line: %%i %%k
-                            echo %%i %%k>>"%TARGET_DIR%\%SETTINGS_FILE%"
-                        )
                     )
                 )
                 if "!match_found!" == "false" (
-                    echo Adding line: %%i %%k
-                    echo %%i %%k>>"%TARGET_DIR%\%SETTINGS_FILE%"
+                    echo Adding line: %%i
+                    echo %%i>>"%TARGET_DIR%\%SETTINGS_FILE%"
                 )
             )
             endlocal
