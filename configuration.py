@@ -18,20 +18,24 @@ SERVER_CONFIG_PATH = settings['paths']['server_config_path']
 SERVER_RESOURCES_PATH = settings['paths']['server_resources_path']
 MAPS_JSON_PATH = os.path.join(script_dir, 'maps.json')
 
-# other configuration settings
-FIRST_SEPERATOR = settings['other']['first_separator']
-SECOND_SEPERATOR = settings['other']['second_separator']
-CONFIG_SEPARATOR = settings['other']['config_separator']
-CONFIG_VALUE_SEPARATOR = settings['other']['config_value_separator']
-
 ADDED_MAPS = os.path.normpath(settings['paths']['added_maps_path'])
 SERVER_CONFIG = os.path.normpath(settings['paths']['server_config_path'])
 SERVER_SHORTCUT = os.path.normpath(settings['paths']['server_shortcut_path'])
 TUNNEL_EXE = os.path.normpath(settings['paths']['tunnel_exe_path'])
 LAUNCHER_SHORTCUT = os.path.normpath(settings['paths']['launcher_shortcut_path'])
+
+# other configuration settings
+FIRST_SEPERATOR = settings['other']['first_separator']
+SECOND_SEPERATOR = settings['other']['second_separator']
+CONFIG_SEPARATOR = settings['other']['config_separator']
+CONFIG_VALUE_SEPARATOR = settings['other']['config_value_separator']
+ERROR_EMOJI = settings['other']['error_emoji']
+SUCCESS_EMOJI = settings['other']['success_emoji']
+
+
+
 # Convert colors from settings.toml to colorama.Fore attributes
 DEFAULT_TEXT_COLOR = settings['color_map']['default_text_color']
-
 DEFAULT_MAP_COLOR = settings['color_map']['default_map_color']
 ADDED_MAP_COLOR = settings['color_map']['added_map_color']
 ZIP_NAME_COLOR = settings['color_map']['zip_name_color']
