@@ -1,6 +1,5 @@
 from functions import *
 
-
 class CustomArgumentParser(argparse.ArgumentParser):
     def print_help(self):
         help_text = super().format_help()
@@ -23,6 +22,7 @@ class CustomArgumentParser(argparse.ArgumentParser):
         os.sys.exit(2)
  
 def main():
+    
     parser = CustomArgumentParser(description=f"Map Management Script")
     parser.add_argument('command', choices=['list', 'pick', 'sync', 'open', 'run', 'update'], help=f"Command to execute")
     parser.add_argument('map_identifier', nargs='?', default=None)

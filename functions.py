@@ -8,7 +8,6 @@ from rich.text import Text
 from configuration import *
 console = Console()
 
-
 def update_script():
     
     script_path = os.path.join(os.path.dirname(__file__), 'update.bat')
