@@ -5,7 +5,7 @@ REM Define variables
 set REPO_URL=https://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@github.com/jds4nrdrch/bmpmapswitcher.git
 set TEMP_DIR=%TEMP%\repo_temp
 set TARGET_DIR=%CD%
-set FILES_TO_CHECK=configuration.py functions.py main.py settings.toml requirements.txt update.bat
+set FILES_TO_CHECK=configuration.py functions.py main.py settings.toml requirements.txt update.bat helper_functions.py
 set DEFAULT_SETTINGS_FILE=default_settings.toml
 set SETTINGS_FILE=settings.toml
 set MAPS_FILE=maps.json
