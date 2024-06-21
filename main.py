@@ -9,7 +9,7 @@ class CustomArgumentParser(argparse.ArgumentParser):
             f"[{DEFAULT_TEXT_COLOR}]  List maps:[/{DEFAULT_TEXT_COLOR}]      BMPMapSwitcher [bold {CONFIG_VALUE_COLOR}]list[/bold {CONFIG_VALUE_COLOR}]\n"
             f"[{DEFAULT_TEXT_COLOR}]  Sync maps:[/{DEFAULT_TEXT_COLOR}]      BMPMapSwitcher [bold {CONFIG_VALUE_COLOR}]sync[/bold {CONFIG_VALUE_COLOR}]\n"
             f"[{DEFAULT_TEXT_COLOR}]  Pick map:[/{DEFAULT_TEXT_COLOR}]       BMPMapSwitcher [bold {CONFIG_VALUE_COLOR}]pick[/bold {CONFIG_VALUE_COLOR}] [{ZIP_NAME_COLOR}]<map_name_or_id>[/{ZIP_NAME_COLOR}]\n"
-            f"[{DEFAULT_TEXT_COLOR}]  Open Paths:[/{DEFAULT_TEXT_COLOR}]     BMPMapSwitcher [bold {CONFIG_VALUE_COLOR}]open[/bold {CONFIG_VALUE_COLOR}] [{ZIP_NAME_COLOR}]<option>[/{ZIP_NAME_COLOR}]\n"
+            f"[{DEFAULT_TEXT_COLOR}]  Open paths:[/{DEFAULT_TEXT_COLOR}]     BMPMapSwitcher [bold {CONFIG_VALUE_COLOR}]open[/bold {CONFIG_VALUE_COLOR}] [{ZIP_NAME_COLOR}]<option>[/{ZIP_NAME_COLOR}]\n"
             f"[{DEFAULT_TEXT_COLOR}]  Run exe/lnk:[/{DEFAULT_TEXT_COLOR}]    BMPMapSwitcher [bold {CONFIG_VALUE_COLOR}]run[/bold {CONFIG_VALUE_COLOR}] [{ZIP_NAME_COLOR}]<option>[/{ZIP_NAME_COLOR}]\n"
             f"[{DEFAULT_TEXT_COLOR}]  Update Program:[/{DEFAULT_TEXT_COLOR}] BMPMapSwitcher [bold {CONFIG_VALUE_COLOR}]update[/bold {CONFIG_VALUE_COLOR}]\n"
         
