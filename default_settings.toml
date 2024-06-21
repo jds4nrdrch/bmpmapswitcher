@@ -21,7 +21,7 @@ error_or_success_text_color = "#FFFFFF"
 config_name_color = "#DEE0DF"
 config_value_color = "#9656EB"
 
-# Separators for list command | to list emojis: python -m rich.emoji
+# Separators for list command 
 [other]
 first_separator = ": " 
 second_separator = " - "
@@ -31,7 +31,7 @@ error_emoji = ":cross_mark:"
 success_emoji = ":white_heavy_check_mark:" 
 update_emoji = ":wrench:"
 
-[keys]
+[keys] # to list emojis: python -m rich.emoji
 name = ":computer:"
 port = ":globe_with_meridians:"
 map = ":world_map:"
