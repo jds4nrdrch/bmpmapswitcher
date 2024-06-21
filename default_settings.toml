@@ -1,0 +1,29 @@
+# paths with slash to the right (e.g. '/' not '\') 
+[paths]
+default_maps_path = "/path/to/Steam/steamapps/common/BeamNG.drive/content/levels"
+added_maps_path = "/path/to/added/maps"
+server_config_path = "/path/to/ServerConfig.toml"
+server_resources_path = "/path/to/BeamMPServer/Resources/Client"
+server_shortcut_path = "/path/to/BeamMP-Server.exe - Shortcut.lnk" # create a shortcut for the BeamMP-Server.exe
+tunnel_exe_path = "/path/to/playit_gg/bin/playit.exe" # reverse proxy or tunnel application
+launcher_shortcut_path = "/path/to/BeamMP-Launcher.lnk"
+
+# https://colors-picker.com/hex-color-picker/ 
+[color_map]
+default_text_color = "#FFFFFF"
+number_color = "#C7C7C7"
+default_map_color = "#0ABD64"
+added_map_color = "#03A8E4"
+zip_name_color = "#868686"
+error_color = "bold red"
+success_color = "bold green"
+error_or_success_text_color = "#FFFFFF"
+config_name_color = "#DEE0DF"
+config_value_color = "#9656EB"
+
+# Separators for list command
+[other]
+first_separator = ": " 
+second_separator = " - "
+config_separator = ", "
+config_value_separator = ": "
