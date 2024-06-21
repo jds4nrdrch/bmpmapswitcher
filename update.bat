@@ -3,7 +3,7 @@ setlocal enabledelayedexpansion
 
 REM Determine script directory
 set "SCRIPT_DIR=%~dp0"
-REM Define variabless
+REM Define variables
 set REPO_URL=https://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@github.com/jds4nrdrch/bmpmapswitcher.git
 set TEMP_DIR=%TEMP%\repo_temp
 set TARGET_DIR=%SCRIPT_DIR%
@@ -51,6 +51,15 @@ for %%f in (%FILES_TO_CHECK%) do (
         if not exist "%TARGET_DIR%\%SETTINGS_FILE%" (
             echo Copying %DEFAULT_SETTINGS_FILE% to %SETTINGS_FILE%...
             copy /y "%DEFAULT_SETTINGS_FILE%" "%TARGET_DIR%\%SETTINGS_FILE%"
+            echo 350
+        ) else (
+            echo Updating %SETTINGS_FILE% from %DEFAULT_SETTINGS_FILE%...
+            for /f "tokens=* delims=" %%i in (%DEFAULT_SETTINGS_FILE%) do (
+                findstr /c:"%%i" "%TARGET_DIR%\%SETTINGS_FILE%" >nul || (
+                    echo Adding line: %%i
+                    echo %%i>>"%TARGET_DIR%\%SETTINGS_FILE%"
+                )
+            )
             echo 350
         )
     ) else (

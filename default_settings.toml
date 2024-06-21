@@ -30,3 +30,5 @@ config_value_separator = ": "
 error_emoji = ":cross_mark:"
 success_emoji = ":white_heavy_check_mark:" 
 update_emoji = ":wrench:"
+# test line
+other_emofi = ":wrench:"
