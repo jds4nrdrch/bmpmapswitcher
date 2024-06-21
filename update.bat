@@ -17,16 +17,16 @@ REM Clone the repository to a temporary folder
 echo Cloning repository to %TEMP_DIR%...
 if exist %TEMP_DIR% rd /s /q %TEMP_DIR%
 git clone %REPO_URL% %TEMP_DIR%
-echo 10
+echo 100
 if errorlevel 1 (
     echo Error cloning repository.
     echo 100
     exit /b 1
 )
-echo 20
+echo 200
 REM Change to the temporary repository directory
 cd /d %TEMP_DIR%
-echo 30
+echo 300
 REM Check and update files
 echo Checking and updating files...
 for %%f in (%FILES_TO_CHECK%) do (
@@ -40,7 +40,7 @@ for %%f in (%FILES_TO_CHECK%) do (
         copy /y %%f "%TARGET_DIR%\%%f"
     )
 )
-echo 45
+echo 450
 
 
 
@@ -50,7 +50,7 @@ if exist "%TARGET_DIR%\%MAPS_FILE%" (
     echo Removing %MAPS_FILE%...
     del /q "%TARGET_DIR%\%MAPS_FILE%"
 )
-echo 66
+echo 660
 
 
 REM Install or upgrade pip packages
@@ -59,12 +59,12 @@ if exist "%TARGET_DIR%\requirements.txt" (
     echo 80
     pip install --upgrade -r "%TARGET_DIR%\requirements.txt"
 )
-echo 90
+echo 900
 
 REM Clean up
 echo Cleaning up...
 rd /s /q %TEMP_DIR%
 
-echo 100
+echo 1000
 echo Update complete.
 exit /b 0
