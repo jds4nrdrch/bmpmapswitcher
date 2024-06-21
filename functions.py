@@ -9,7 +9,7 @@ console = Console()
 
 
 def update_script():
-    # Path to the update.bat script
+    
     script_path = os.path.join(os.path.dirname(__file__), 'update.bat')
     
     if not os.path.exists(script_path):
@@ -31,13 +31,11 @@ def update_script():
     # Run the script with a progress bar
     try:
         with Progress() as progress:
-            task = progress.add_task(":thumbs_up:[SUCCESS_COLOR]log[/SUCCESS_COLOR] Updating...", total=100)
+            task = progress.add_task(f":thumbs_up:[{SUCCESS_COLOR}] log [/{SUCCESS_COLOR}] Updating...", total=100)
             
             for line in run_script():
                 if line.isdigit():
                     progress.update(task, completed=int(line))
-
-        
         exc_handler('success', f"Update complete.")
     except Exception as e:
         exc_handler('error', f"Update failed.")
