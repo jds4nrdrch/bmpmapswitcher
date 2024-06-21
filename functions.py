@@ -31,7 +31,7 @@ def update_script():
     # Run the script with a progress bar
     try:
         with Progress() as progress:
-            task = progress.add_task(f":thumbs_up:[{SUCCESS_COLOR}] log [/{SUCCESS_COLOR}]Updating...", total=1000)
+            task = progress.add_task(f":wrench:[{SUCCESS_COLOR}] log [/{SUCCESS_COLOR}]Updating...", total=1000)
             previous_percentage = 0
 
             for line in run_script():
