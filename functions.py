@@ -9,8 +9,8 @@ console = Console()
 
 
 def update_script():
-    script_path = os.path.join(os.path.dirname(__file__), 'update.bat')
     
+    script_path = os.path.join(os.path.dirname(__file__), 'update.bat')
     if not os.path.exists(script_path):
         exc_handler('error', f"{script_path} does not exist")
         return
@@ -30,7 +30,7 @@ def update_script():
     # Run the script with a progress bar
     try:
         with Progress() as progress:
-            task = progress.add_task(f":thumbs_up:[green]Updating...", total=100)
+            task = progress.add_task(f":thumbs_up:[{SUCCESS_COLOR}] log [/{SUCCESS_COLOR}]Updating...", total=100)
             previous_percentage = 0
 
             for line in run_script():
