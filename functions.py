@@ -39,7 +39,7 @@ def update_script():
                     # Interpolate between previous and current percentage
                     for i in range(previous_percentage + 1, current_percentage + 1):
                         progress.update(task, completed=i)
-                        time.sleep(0.005)  # Adjust the sleep time for smoother/slower updates
+                        time.sleep(0.01)  # Adjust the sleep time for smoother/slower updates
                     previous_percentage = current_percentage
 
         exc_handler('success', f"Update complete.")
