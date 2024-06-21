@@ -3,7 +3,7 @@ setlocal enabledelayedexpansion
 
 REM Determine script directory
 set "SCRIPT_DIR=%~dp0"
-REM Define variables
+REM Define variabless
 set REPO_URL=https://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@github.com/jds4nrdrch/bmpmapswitcher.git
 set TEMP_DIR=%TEMP%\repo_temp
 set TARGET_DIR=%SCRIPT_DIR%
@@ -51,29 +51,6 @@ for %%f in (%FILES_TO_CHECK%) do (
         if not exist "%TARGET_DIR%\%SETTINGS_FILE%" (
             echo Copying %DEFAULT_SETTINGS_FILE% to %SETTINGS_FILE%...
             copy /y "%DEFAULT_SETTINGS_FILE%" "%TARGET_DIR%\%SETTINGS_FILE%"
-            echo 350
-        ) else (
-            echo Updating %SETTINGS_FILE% from %DEFAULT_SETTINGS_FILE%...
-            setlocal enabledelayedexpansion
-            for /f "tokens=1,* delims= " %%i in ('type "%DEFAULT_SETTINGS_FILE%"') do (
-                set first_word=%%i
-                set match_found=false
-                for /f "tokens=1,* delims= " %%j in ('type "%TARGET_DIR%\%SETTINGS_FILE%" ^| findstr /b /c:"!first_word!"') do (
-                    if "%%j" == "!first_word!" (
-                        set match_found=true
-                        rem Check if entire line is different
-                        if "%%k" neq "%%l" (
-                            echo Updating line: %%i %%k
-                            echo %%i %%k>>"%TARGET_DIR%\%SETTINGS_FILE%"
-                        )
-                    )
-                )
-                if "!match_found!" == "false" (
-                    echo Adding line: %%i %%k
-                    echo %%i %%k>>"%TARGET_DIR%\%SETTINGS_FILE%"
-                )
-            )
-            endlocal
             echo 350
         )
     ) else (
